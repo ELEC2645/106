@@ -9,11 +9,11 @@ all: main.exe
 debug: CFLAGS += -DDEBUG -g
 debug: main.exe 
 
-main.exe: main.o 
-	$(CC) main.o -o main.exe
+main.exe: main.o tests.o funcs.o
+	$(CC) main.o tests.o funcs.o -o main.exe
 
-main.o: main.cpp
-	$(CC) $(CFLAGS) main.cpp
+funcs.o: funcs.cpp
+	$(CC) $(CFLAGS) funcs.cpp
 
 clean:
-	rm *.o main.exe
+	rm funcs.o main.exe

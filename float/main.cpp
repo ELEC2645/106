@@ -23,6 +23,7 @@ double sqr(double a) { return a * a; }
 
 // function to test sqr
 bool test_sqr(double a, double expected) {
+  std::cout.precision(std::numeric_limits<double>::max_digits10);
   std::cout << "sqr(" << a << ") : ";
   double val = sqr(a);  // calc value and compare to expected
   if (almost_equal(val, expected)) {
@@ -48,9 +49,9 @@ int run_sqr_tests() {
   std::cout << "\nsqr() passed " << passed << " tests.\n";
   return passed;
 }
-// checks whether 2 double are almost equal
+// checks whether 2 double's are almost equal
 bool almost_equal(double a, double b) {
   // == may return true, but also check whether the relative difference
   // between the numbers is less than a small threshold
-  return a == b || (std::abs(a - b) / std::max(a, b) <= 1e-6);
+  return a == b || (std::abs(a - b) / std::max(a, b) <= 1e-9);
 }

@@ -15,7 +15,7 @@ int main() {
 }
 
 // function we have implemented
-int sum(int a, int b) { return a - b; }
+int sum(int a, int b) { return a + b; }
 
 // function to test sum
 bool test_sum(int a, int b, int expected) {
